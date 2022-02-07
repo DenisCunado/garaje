@@ -14,7 +14,7 @@ public class ListarAlumnos {
 
 	public static void main(String[] args) {
 
-		System.out.println("Listado de Libros");
+		System.out.println("Listado de Listado de clientes");
 
 		String sql = ("SELECT nombre FROM garajebd.cliente;");
 
