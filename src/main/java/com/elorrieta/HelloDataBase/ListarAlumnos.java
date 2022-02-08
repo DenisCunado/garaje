@@ -1,16 +1,14 @@
 package com.elorrieta.HelloDataBase;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import com.mysql.jdbc.Connection;
+
 
 public class ListarAlumnos {
 
-	final static String URL_CONEXIO = "jdbc:mysql://localhost:3306/garajebd?&useSSL=false";
-	final static String USUARIO = "root";
-	final static String PASSWORD = "root";
 
 	public static void main(String[] args) {
 
@@ -21,8 +19,8 @@ public class ListarAlumnos {
 		try (
 
 				// obtener conexio a la base de datos
-				Connection conexion = (Connection) DriverManager.getConnection(URL_CONEXIO, USUARIO, PASSWORD);
-				PreparedStatement pst = conexion.clientPrepareStatement(sql);
+				Connection conexion = BDUtil.getConnection();
+				PreparedStatement pst = conexion.prepareStatement(sql);
 				ResultSet rs = pst.executeQuery();
 
 		) {
